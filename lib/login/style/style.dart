@@ -13,22 +13,29 @@ class IconStyleNotifier extends ChangeNotifier {
   onFocusChangeEmail() {
     if (focusEmail.hasFocus) {
       emailState = Global().primaryColor;
-      notifyListeners();
     } else {
       emailState = Colors.white;
-      notifyListeners();
     }
+    notifyListeners();
   }
 
   onFocusChangePassword() {
     if (focusPassword.hasFocus) {
       passwordState = Global().primaryColor;
-      notifyListeners();
     } else {
       passwordState = Colors.white;
-      notifyListeners();
     }
+    notifyListeners();
   }
+}
+
+BoxDecoration boxDecoration() {
+  return BoxDecoration(
+      gradient: LinearGradient(
+    colors: [Global().backgroundColor, Global().primaryColor],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft,
+  ));
 }
 
 InputDecoration inputDecorationStyle(String label, Color color, IconData icon) {

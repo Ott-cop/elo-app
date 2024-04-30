@@ -1,3 +1,4 @@
+import 'package:elo/home/home.dart';
 import 'package:elo/login/login.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,11 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      initialRoute: "/login",
+      routes: {
+        "/": (_) => const HomePage(),
+        "/login": (_) => const LoginPage(),
+      },
     );
   }
 }

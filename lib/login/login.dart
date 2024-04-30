@@ -13,23 +13,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: avoid_unnecessary_containers
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [Global().backgroundColor, Global().primaryColor],
-          begin: Alignment.bottomRight,
-          end: Alignment.topLeft,
-        )),
         child: Center(
           child: SingleChildScrollView(
-            // physics: NeverScrollableScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   children: [
                     const Image(
-                      image: AssetImage("assets/logo/New-Logo.png"),
+                      image: AssetImage("assets/logo/Logo.png"),
                       height: 200,
                     ),
                     const SizedBox(

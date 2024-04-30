@@ -1,5 +1,5 @@
 import 'package:elo/login/style/style.dart';
-import 'package:elo/login/validate.dart';
+import 'package:elo/login/login_controller.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,7 @@ class LoginInputs extends StatefulWidget {
 class _LoginInputs extends State<LoginInputs> {
   final _iconNotifier = IconStyleNotifier();
   final _formKey = GlobalKey<FormState>();
+  var _form = ValidateForm();
 
   @override
   void initState() {
@@ -46,7 +47,7 @@ class _LoginInputs extends State<LoginInputs> {
               return TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 focusNode: _iconNotifier.focusEmail,
-                validator: (value) => validateEmail(value),
+                validator: (value) => _form.validateEmail(value),
                 decoration: inputDecorationStyle(
                     'Email', _iconNotifier.emailState, Icons.email),
               );
@@ -61,7 +62,7 @@ class _LoginInputs extends State<LoginInputs> {
               return TextFormField(
                 obscureText: true,
                 focusNode: _iconNotifier.focusPassword,
-                validator: (value) => validatePassword(value),
+                validator: (value) => _form.validatePassword(value),
                 decoration: inputDecorationStyle(
                     'Senha', _iconNotifier.passwordState, Icons.lock),
               );
@@ -73,8 +74,8 @@ class _LoginInputs extends State<LoginInputs> {
           SizedBox(
             height: 50,
             child: ElevatedButton(
-                onPressed: () =>
-                    validateForm(context, _formKey.currentState!.validate()),
+                onPressed: () => _form.validateForm(
+                    context, _formKey.currentState!.validate()),
                 style: buttonStyle(),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +93,6 @@ class _LoginInputs extends State<LoginInputs> {
                   ],
                 )),
           ),
-          // Icon(Icons.login)
         ]),
       ),
     );
