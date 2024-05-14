@@ -45,6 +45,9 @@ InputDecoration inputDecorationStyle(String label, Color color, IconData icon) {
         icon,
         color: color,
       ),
+      floatingLabelStyle: TextStyle(color: Global().primaryColor),
+      focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Global().primaryColor)),
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)));
 }
 

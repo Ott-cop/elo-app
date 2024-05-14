@@ -1,4 +1,7 @@
+import 'package:elo/home/energy_used/energy_used.dart';
+import 'package:elo/home/user/user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,14 +13,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(
+          top: (kToolbarHeight),
+          left: 20,
+          right: 20,
+        ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Hello World'),
+            UserWidget(),
+            SizedBox(
+              height: 15,
+            ),
+            EnergyUsedWidget(),
           ],
         ),
       ),

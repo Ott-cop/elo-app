@@ -29,7 +29,7 @@ class ValidateForm {
       if ((email == 'teste@teste.com') && (password == '12345678')) {
         ScaffoldMessenger.of(context).showSnackBar(
             snackBarStyle('Login feito com sucesso!', Colors.green));
-        Navigator.of(context).pushReplacementNamed("/");
+        Navigator.of(context).pushReplacementNamed("/menu");
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
             snackBarStyle('As credenciais estão incorretas.', Colors.red));

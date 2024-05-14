@@ -12,7 +12,9 @@ class LoginInputs extends StatefulWidget {
 class _LoginInputs extends State<LoginInputs> {
   final _iconNotifier = IconStyleNotifier();
   final _formKey = GlobalKey<FormState>();
-  var _form = ValidateForm();
+  final _form = ValidateForm();
+
+  final onFocus = false;
 
   @override
   void initState() {
@@ -44,12 +46,14 @@ class _LoginInputs extends State<LoginInputs> {
           ListenableBuilder(
             listenable: _iconNotifier,
             builder: (context, _) {
-              return TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                focusNode: _iconNotifier.focusEmail,
-                validator: (value) => _form.validateEmail(value),
-                decoration: inputDecorationStyle(
-                    'Email', _iconNotifier.emailState, Icons.email),
+              return Focus(
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  focusNode: _iconNotifier.focusEmail,
+                  validator: (value) => _form.validateEmail(value),
+                  decoration: inputDecorationStyle(
+                      'Email', _iconNotifier.emailState, Icons.email),
+                ),
               );
             },
           ),
