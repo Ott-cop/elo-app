@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        splashColor: Colors.transparent,
         fontFamily: 'Orbitron',
         colorScheme: const ColorScheme.dark(
             primary: Color.fromARGB(255, 216, 101, 6),
             background: Color(0xFF030D13),
-            // onSurface: Color.fromARGB(255, 216, 101, 6),
             error: Colors.red),
         useMaterial3: true,
       ),
