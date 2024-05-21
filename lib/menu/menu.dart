@@ -32,10 +32,7 @@ class _MenuState extends State<Menu> {
       body: PageView(
         onPageChanged: setCurrentPage,
         controller: pageController,
-        children: const [
-          HomePage(),
-          ThemeModePage(),
-        ],
+        children: const [HomePage(), ThemeModePage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Global().primaryColor,

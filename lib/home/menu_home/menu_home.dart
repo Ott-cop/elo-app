@@ -1,7 +1,5 @@
 import 'package:elo/home/menu_home/item_home/item_home.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MenuHomeWidget extends StatefulWidget {
   const MenuHomeWidget({super.key});
@@ -19,6 +17,18 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
     Tab(text: 'Banheiro')
   ];
   late TabController tabController;
+  List<ItemHome> lista = const [
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome(),
+    ItemHome()
+  ];
 
   @override
   void initState() {
@@ -31,39 +41,45 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
     return Column(
       children: [
         TabBar(
+          dividerColor: Colors.transparent,
           controller: tabController,
           tabs: rooms,
           isScrollable: true,
           tabAlignment: TabAlignment.center,
+          onTap: (value) {
+            setState(() {});
+          },
         ),
         const SizedBox(
           height: 20,
         ),
-        Container(
-          height: MediaQuery.of(context).size.height / 2,
-          child: TabBarView(
-            controller: tabController,
-            children: const [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ItemHome(),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      ItemHome(),
-                    ],
-                  ),
-                ],
-              ),
-              Text('HELLO2'),
-              Text('HELLO3'),
-              Text('HELLO4'),
-            ],
-          ),
+        Expanded(
+          flex: 10,
+          child: Builder(builder: (_) {
+            if (tabController.index == 0) {
+              return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                    direction: Axis.horizontal,
+                    spacing: 15,
+                    runSpacing: 15,
+                    children: List.generate(lista.length, (index) {
+                      return lista[index];
+                    })),
+              );
+            } else if (tabController.index == 1) {
+              return const Text('2');
+            } else if (tabController.index == 2) {
+              return const Text('3');
+            } else if (tabController.index == 3) {
+              return const Text('4');
+            } else {
+              return Container();
+            }
+          }),
+        ),
+        const SizedBox(
+          height: 10,
         )
       ],
     );

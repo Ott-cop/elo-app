@@ -53,9 +53,9 @@ InputDecoration inputDecorationStyle(String label, Color color, IconData icon) {
 
 ButtonStyle buttonStyle() {
   return ButtonStyle(
-      elevation: const MaterialStatePropertyAll(0),
-      backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+      elevation: const WidgetStatePropertyAll(0),
+      backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
+      shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
           RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
               side: BorderSide(color: Global().primaryColor))));

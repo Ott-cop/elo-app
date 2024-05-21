@@ -27,6 +27,9 @@ class _ItemHomeState extends State<ItemHome> {
           device.icon,
           Text('${device.name}'),
           Switch(
+              // inactiveThumbColor: Global().primaryColor,
+              splashRadius: 0,
+              // thumbColor: MaterialStatePropertyAll(Global().backgroundColor),
               value: device.state,
               onChanged: (_) {
                 setState(() {

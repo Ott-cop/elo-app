@@ -13,17 +13,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ELO',
       theme: ThemeData(
         splashColor: Colors.transparent,
         fontFamily: 'Orbitron',
         colorScheme: const ColorScheme.dark(
             primary: Color.fromARGB(255, 216, 101, 6),
-            background: Color(0xFF030D13),
+            surface: Color(0xFF030D13),
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/menu",
+      initialRoute: "/login",
       routes: {
         "/menu": (_) => const Menu(),
         "/": (_) => const HomePage(),

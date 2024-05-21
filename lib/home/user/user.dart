@@ -1,9 +1,7 @@
 import 'package:elo/home/user/more_device/more_device.dart';
 import 'package:elo/home/user/notifications/notifications.dart';
 import 'package:elo/styles/global.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class UserWidget extends StatelessWidget {
   const UserWidget({super.key});
