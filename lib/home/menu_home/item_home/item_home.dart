@@ -1,19 +1,32 @@
-import 'package:elo/home/menu_home/item_home/device_home_controller.dart';
+import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ItemHome extends StatefulWidget {
-  const ItemHome({super.key});
+  late Device device;
+  ItemHome({super.key, required this.device});
 
   @override
   State<ItemHome> createState() => _ItemHomeState();
 }
 
 class _ItemHomeState extends State<ItemHome> {
-  Device device = Device(
-      icon: const Icon(Icons.bathtub_rounded), name: 'Banheiro', state: true);
+  WidgetStatePropertyAll<Color> color =
+      WidgetStatePropertyAll(Global().primaryColor);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (widget.device.state) {
+      color = WidgetStatePropertyAll(Global().backgroundColor);
+    } else {
+      color = const WidgetStatePropertyAll(Colors.white);
+    }
     return Container(
       width: 120,
       height: 120,
@@ -24,16 +37,27 @@ class _ItemHomeState extends State<ItemHome> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          device.icon,
-          Text('${device.name}'),
+          Icon(
+            widget.device.icon,
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(widget.device.name),
+          const SizedBox(
+            height: 5,
+          ),
           Switch(
-              // inactiveThumbColor: Global().primaryColor,
-              splashRadius: 0,
-              // thumbColor: MaterialStatePropertyAll(Global().backgroundColor),
-              value: device.state,
-              onChanged: (_) {
+              thumbColor: color,
+              value: widget.device.state,
+              onChanged: (value) {
                 setState(() {
-                  device.state = !device.state;
+                  if (value) {
+                    color = WidgetStatePropertyAll(Global().backgroundColor);
+                  } else {
+                    color = const WidgetStatePropertyAll(Colors.white);
+                  }
+                  widget.device.state = !widget.device.state;
                 });
               }),
         ],

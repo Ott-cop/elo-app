@@ -1,3 +1,4 @@
+import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:elo/home/menu_home/item_home/item_home.dart';
 import 'package:flutter/material.dart';
 
@@ -14,26 +15,34 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
     Tab(text: 'Geral'),
     Tab(text: 'Sala'),
     Tab(text: 'Quarto'),
+    Tab(text: 'Banheiro'),
     Tab(text: 'Banheiro')
   ];
   late TabController tabController;
-  List<ItemHome> lista = const [
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome(),
-    ItemHome()
-  ];
+  late List<ItemHome> lista;
 
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: rooms.length, vsync: this);
+    lista = [
+      ItemHome(
+        device: Device(icon: Icons.bathtub, name: 'Banheiro', state: true),
+      ),
+      ItemHome(
+        device:
+            Device(icon: Icons.lightbulb, name: 'Luz Cozinha', state: false),
+      ),
+      ItemHome(
+        device: Device(icon: Icons.garage, name: 'Garage,', state: false),
+      ),
+      ItemHome(
+        device: Device(icon: Icons.bed, name: 'Quarto', state: true),
+      ),
+      ItemHome(
+        device: Device(icon: Icons.shower, name: 'Chuveiro', state: false),
+      ),
+    ];
   }
 
   @override
@@ -78,9 +87,6 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
             }
           }),
         ),
-        const SizedBox(
-          height: 10,
-        )
       ],
     );
   }
