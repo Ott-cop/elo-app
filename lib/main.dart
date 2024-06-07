@@ -1,6 +1,7 @@
 import 'package:elo/home/home.dart';
 import 'package:elo/login/login.dart';
 import 'package:elo/menu/menu.dart';
+import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ELO',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Global().backgroundColor,
         splashColor: Colors.transparent,
         fontFamily: 'Orbitron',
         colorScheme: const ColorScheme.dark(
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/login",
+      initialRoute: "/menu",
       routes: {
         "/menu": (_) => const Menu(),
         "/": (_) => const HomePage(),

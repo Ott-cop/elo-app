@@ -1,6 +1,7 @@
 import 'package:elo/home/energy_used/energy_used.dart';
 import 'package:elo/home/menu_home/menu_home.dart';
 import 'package:elo/home/user/user.dart';
+import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,8 +19,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      backgroundColor: Global().backgroundColor,
+      body: const SafeArea(
         top: true,
         minimum: EdgeInsets.only(top: 40, left: 20, right: 20),
         child: Column(
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
-            Expanded(flex: 3, child: MenuHomeWidget()),
+            Expanded(child: MenuHomeWidget()),
             // SizedBox(
             //   height: 100,
             // )

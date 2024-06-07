@@ -28,8 +28,8 @@ class _ItemHomeState extends State<ItemHome> {
       color = const WidgetStatePropertyAll(Colors.white);
     }
     return Container(
-      width: 120,
-      height: 120,
+      width: 150,
+      height: 150,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Global().primaryColor)),
@@ -39,9 +39,10 @@ class _ItemHomeState extends State<ItemHome> {
         children: [
           Icon(
             widget.device.icon,
+            size: 40,
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
           Text(widget.device.name),
           const SizedBox(

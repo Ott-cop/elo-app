@@ -45,9 +45,8 @@ class _EnergyUsedWidgetState extends State<EnergyUsedWidget> {
               end: Alignment.bottomRight,
               colors: [
                 Global().primaryColor,
-                Global().backgroundColor2,
-                Global().backgroundColor2,
-                Global().backgroundColor2,
+                Global().backgroundColor,
+                Global().backgroundColor,
                 Global().primaryColor
               ])),
       child: Row(
