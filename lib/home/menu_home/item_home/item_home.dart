@@ -14,6 +14,7 @@ class ItemHome extends StatefulWidget {
 class _ItemHomeState extends State<ItemHome> {
   WidgetStatePropertyAll<Color> color =
       WidgetStatePropertyAll(Global().primaryColor);
+  Color iconColor = Global().primaryColor;
 
   @override
   void initState() {
@@ -24,8 +25,10 @@ class _ItemHomeState extends State<ItemHome> {
   Widget build(BuildContext context) {
     if (widget.device.state) {
       color = WidgetStatePropertyAll(Global().backgroundColor);
+      iconColor = Global().primaryColor;
     } else {
       color = const WidgetStatePropertyAll(Colors.white);
+      iconColor = Colors.white;
     }
     return Container(
       width: 150,
@@ -39,12 +42,16 @@ class _ItemHomeState extends State<ItemHome> {
         children: [
           Icon(
             widget.device.icon,
+            color: iconColor,
             size: 40,
           ),
           const SizedBox(
             height: 10,
           ),
-          Text(widget.device.name),
+          Text(
+            widget.device.name,
+            style: const TextStyle(fontSize: 15),
+          ),
           const SizedBox(
             height: 5,
           ),

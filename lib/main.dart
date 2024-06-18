@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Global().backgroundColor,
-        splashColor: Colors.transparent,
+        splashFactory: InkSplash.splashFactory,
+        // splashColor: Colors.transparent,
         fontFamily: 'Orbitron',
         colorScheme: const ColorScheme.dark(
             primary: Color.fromARGB(255, 216, 101, 6),

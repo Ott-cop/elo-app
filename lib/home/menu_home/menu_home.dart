@@ -34,7 +34,7 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
             Device(icon: Icons.lightbulb, name: 'Luz Cozinha', state: false),
       ),
       ItemHome(
-        device: Device(icon: Icons.garage, name: 'Garage,', state: false),
+        device: Device(icon: Icons.garage, name: 'Garagem', state: false),
       ),
       ItemHome(
         device: Device(icon: Icons.bed, name: 'Quarto', state: true),

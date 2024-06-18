@@ -21,10 +21,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Global().backgroundColor,
-      body: const SafeArea(
-        top: true,
-        minimum: EdgeInsets.only(top: 40, left: 20, right: 20),
-        child: Column(
+      body: safeAreaModified(
+        child: const Column(
           children: [
             UserWidget(),
             SizedBox(

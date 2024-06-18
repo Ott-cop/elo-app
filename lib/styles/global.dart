@@ -6,6 +6,14 @@ class Global {
   Color backgroundColor2 = const Color(0xFF05151F);
 }
 
+SafeArea safeAreaModified({required Widget child}) {
+  return SafeArea(
+    top: true,
+    minimum: const EdgeInsets.only(top: 40, left: 20, right: 20),
+    child: child,
+  );
+}
+
 SnackBar snackBarStyle(String? message, Color? color) {
   return SnackBar(
     content: Text('$message'),

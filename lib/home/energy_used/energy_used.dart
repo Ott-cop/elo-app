@@ -1,7 +1,5 @@
 import 'package:elo/styles/global.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class EnergyUsedWidget extends StatefulWidget {
   const EnergyUsedWidget({super.key});
@@ -19,7 +17,7 @@ class _EnergyUsedWidgetState extends State<EnergyUsedWidget> {
   @override
   Widget build(BuildContext context) {
     double mqw = MediaQuery.sizeOf(context).width;
-    print(mqw);
+    debugPrint(mqw.toString());
     if (mqw > 370) {
       alignment = MainAxisAlignment.spaceAround;
       isVisible = true;
@@ -75,7 +73,10 @@ class _EnergyUsedWidgetState extends State<EnergyUsedWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Este Mês'),
+                  const Text(
+                    'Este Mês',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(
                     '0,84 kWh',
                     style: TextStyle(color: Colors.white, fontSize: fontSize),
