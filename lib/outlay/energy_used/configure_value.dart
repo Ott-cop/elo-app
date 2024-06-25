@@ -1,9 +1,16 @@
+import 'package:elo/outlay/energy_used/style/style.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
-class ConfigureValuePage extends StatelessWidget {
+class ConfigureValuePage extends StatefulWidget {
   const ConfigureValuePage({super.key});
 
+  @override
+  State<ConfigureValuePage> createState() => _ConfigureValuePageState();
+}
+
+class _ConfigureValuePageState extends State<ConfigureValuePage> {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +42,7 @@ class ConfigureValuePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text.rich(
@@ -83,6 +90,20 @@ class ConfigureValuePage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            TextFormField(
+              controller: _controller,
+              onChanged: (v) {
+                setState(() {
+                  print(v);
+                });
+              },
+              decoration: inputDecorationStyle(
+                  '1.4 kWh', Global().primaryColor, Icons.bolt),
+              keyboardType: TextInputType.number,
+            )
           ],
         ),
       ),

@@ -35,7 +35,7 @@ class _MenuState extends State<Menu> {
         children: const [HomePage(), OutlayPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Global().backgroundColor,
+        backgroundColor: Global().backgroundColor2,
         selectedItemColor: Global().primaryColor,
         currentIndex: currentPage,
         items: const [

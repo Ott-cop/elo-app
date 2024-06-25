@@ -74,7 +74,6 @@ class _EnergyUsedPageWidgetState extends State<EnergyUsedPageWidget> {
             visible: isVisible,
             child: const VerticalDivider(
               color: Color.fromARGB(125, 255, 255, 255),
-              width: 20,
               indent: 25,
               endIndent: 25,
             ),
@@ -84,7 +83,7 @@ class _EnergyUsedPageWidgetState extends State<EnergyUsedPageWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 140,
+                width: 200,
                 child: Text(
                   widget.typeDate,
                   style: TextStyle(
@@ -92,7 +91,7 @@ class _EnergyUsedPageWidgetState extends State<EnergyUsedPageWidget> {
                 ),
               ),
               SizedBox(
-                width: 140,
+                width: 200,
                 child: Text(
                   widget.energyUsed,
                   style: TextStyle(

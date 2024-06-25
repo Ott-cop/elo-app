@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Global {
   Color primaryColor = const Color(0xFFD86506);
   Color backgroundColor = const Color(0xFF030D13);
-  Color backgroundColor2 = const Color(0xFF05151F);
+  Color backgroundColor2 = const Color.fromARGB(255, 5, 20, 29);
 }
 
 SafeArea safeAreaModified({required Widget child}) {

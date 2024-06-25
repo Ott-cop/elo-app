@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: [
                   const Image(
-                    image: AssetImage("assets/logo/Logo.png"),
+                    image: AssetImage("assets/logo/LOGO_Oficial.png"),
                     height: 200,
                   ),
                   const SizedBox(
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                         text: 'Seja bem-vindo à\n',
                         children: [
                           TextSpan(
-                              text: 'ELO!',
+                              text: 'ELO',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Global().primaryColor))
