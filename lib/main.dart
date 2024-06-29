@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Global().backgroundColor,
         splashFactory: InkSplash.splashFactory,
-        // splashColor: Colors.transparent,
         fontFamily: 'Orbitron',
         colorScheme: const ColorScheme.dark(
             primary: Color.fromARGB(255, 216, 101, 6),
@@ -27,11 +26,11 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/login",
+      initialRoute: "/",
       routes: {
+        "/": (_) => const LoginPage(),
         "/menu": (_) => const Menu(),
-        "/": (_) => const HomePage(),
-        "/login": (_) => const LoginPage(),
+        "/home": (_) => const HomePage(),
       },
     );
   }

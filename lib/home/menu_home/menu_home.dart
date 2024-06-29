@@ -16,32 +16,61 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
     Tab(text: 'Sala'),
     Tab(text: 'Quarto'),
     Tab(text: 'Banheiro'),
-    Tab(text: 'Banheiro')
+    Tab(text: 'Quintal')
   ];
   late TabController tabController;
-  late List<ItemHome> lista;
+  late List<ItemHome> general;
+  late List<ItemHome> livingRoom;
+  late List<ItemHome> room;
+  late List<ItemHome> bathroom;
+  late List<ItemHome> yard;
 
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: rooms.length, vsync: this);
-    lista = [
-      ItemHome(
-        device: Device(icon: Icons.bathtub, name: 'Banheiro', state: true),
-      ),
-      ItemHome(
-        device:
-            Device(icon: Icons.lightbulb, name: 'Luz Cozinha', state: false),
-      ),
-      ItemHome(
-        device: Device(icon: Icons.garage, name: 'Garagem', state: false),
-      ),
-      ItemHome(
-        device: Device(icon: Icons.bed, name: 'Quarto', state: true),
-      ),
-      ItemHome(
-        device: Device(icon: Icons.shower, name: 'Chuveiro', state: false),
-      ),
+    Device banheiro =
+        Device(icon: Icons.bathtub, name: 'Banheiro', state: true);
+    Device abajur = Device(icon: Icons.lightbulb, name: 'Abajur', state: true);
+    Device luzCozinha =
+        Device(icon: Icons.lightbulb, name: 'Luz Cozinha', state: false);
+    Device luzQuarto =
+        Device(icon: Icons.lightbulb, name: 'Luz Quarto', state: true);
+    Device luzSala =
+        Device(icon: Icons.lightbulb, name: 'Luz Sala', state: false);
+    Device garagem = Device(icon: Icons.garage, name: 'Garagem', state: false);
+    Device televisao = Device(icon: Icons.tv, name: 'TV Sala', state: false);
+
+    Device irrigador =
+        Device(icon: Icons.shower, name: 'Irrigador Quintal', state: false);
+    Device luzQuintal =
+        Device(icon: Icons.lightbulb, name: 'Luz Quintal', state: false);
+
+    general = [
+      ItemHome(device: banheiro),
+      ItemHome(device: abajur),
+      ItemHome(device: luzCozinha),
+      ItemHome(device: garagem),
+      ItemHome(device: irrigador),
+      ItemHome(device: luzQuintal),
+      ItemHome(device: luzSala),
+      ItemHome(device: televisao),
+      ItemHome(device: luzQuarto),
+    ];
+    livingRoom = [
+      ItemHome(device: luzSala),
+      ItemHome(device: televisao),
+    ];
+    room = [
+      ItemHome(device: luzQuarto),
+      ItemHome(device: abajur),
+    ];
+    bathroom = [
+      ItemHome(device: banheiro),
+    ];
+    yard = [
+      ItemHome(device: luzQuintal),
+      ItemHome(device: irrigador),
     ];
   }
 
@@ -72,16 +101,58 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
                     direction: Axis.horizontal,
                     spacing: 15,
                     runSpacing: 15,
-                    children: List.generate(lista.length, (index) {
-                      return lista[index];
+                    children: List.generate(general.length, (index) {
+                      return general[index];
                     })),
               );
             } else if (tabController.index == 1) {
-              return const Text('2');
+              return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  spacing: 15,
+                  runSpacing: 15,
+                  children: List.generate(livingRoom.length, (index) {
+                    return livingRoom[index];
+                  }),
+                ),
+              );
             } else if (tabController.index == 2) {
-              return const Text('3');
+              return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  spacing: 15,
+                  runSpacing: 15,
+                  children: List.generate(room.length, (index) {
+                    return room[index];
+                  }),
+                ),
+              );
             } else if (tabController.index == 3) {
-              return const Text('4');
+              return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  spacing: 15,
+                  runSpacing: 15,
+                  children: List.generate(bathroom.length, (index) {
+                    return bathroom[index];
+                  }),
+                ),
+              );
+            } else if (tabController.index == 4) {
+              return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  spacing: 15,
+                  runSpacing: 15,
+                  children: List.generate(yard.length, (index) {
+                    return yard[index];
+                  }),
+                ),
+              );
             } else {
               return Container();
             }

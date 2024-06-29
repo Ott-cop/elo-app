@@ -1,5 +1,6 @@
 import 'package:elo/home/home.dart';
 import 'package:elo/outlay/outlay.dart';
+import 'package:elo/profile/profile.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -32,24 +33,37 @@ class _MenuState extends State<Menu> {
       body: PageView(
         onPageChanged: setCurrentPage,
         controller: pageController,
-        children: const [HomePage(), OutlayPage()],
+        children: const [HomePage(), OutlayPage(), ProfilePage()],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Global().backgroundColor2,
-        selectedItemColor: Global().primaryColor,
-        currentIndex: currentPage,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.energy_savings_leaf_rounded), label: 'Gastos'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil')
-        ],
-        onTap: (page) => {
-          pageController.animateToPage(page,
-              duration: const Duration(microseconds: 3000),
-              curve: Curves.easeIn)
-        },
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: SizedBox(
+            height: 70,
+            child: BottomNavigationBar(
+              backgroundColor: Global().backgroundColor2,
+              selectedItemColor: Global().primaryColor,
+              currentIndex: currentPage,
+              items: const [
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.home_rounded), label: 'Home'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.energy_savings_leaf_rounded),
+                    label: 'Gastos'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.person), label: 'Perfil')
+              ],
+              onTap: (page) => {
+                pageController.animateToPage(
+                  page,
+                  duration: const Duration(microseconds: 3000),
+                  curve: Curves.easeIn,
+                )
+              },
+            ),
+          ),
+        ),
       ),
     );
   }
