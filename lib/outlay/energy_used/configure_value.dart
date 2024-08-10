@@ -10,7 +10,7 @@ class ConfigureValuePage extends StatefulWidget {
 }
 
 class _ConfigureValuePageState extends State<ConfigureValuePage> {
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,25 +21,10 @@ class _ConfigureValuePageState extends State<ConfigureValuePage> {
               alignment: Alignment.center,
               children: [
                 Align(
-                  alignment: Alignment.centerLeft,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context, true);
-                    },
-                    icon: const Icon(Icons.arrow_back_ios_new_rounded),
-                  ),
-                ),
-                Text.rich(
-                  TextSpan(children: [
-                    const TextSpan(text: 'Editar Custo '),
-                    TextSpan(
-                        text: 'kWh',
-                        style: TextStyle(
-                            color: Global().primaryColor, fontSize: 14))
-                  ]),
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                    alignment: Alignment.centerLeft,
+                    child: returnPage(context: context)),
+                titleInPages(
+                    title: 'Editar Custo ', subtitle: 'kWh', subtitleSize: 14),
               ],
             ),
             const SizedBox(
@@ -100,8 +85,8 @@ class _ConfigureValuePageState extends State<ConfigureValuePage> {
                   print(v);
                 });
               },
-              decoration: inputDecorationStyle(
-                  '1.4 kWh', Global().primaryColor, Icons.bolt),
+              decoration:
+                  inputDecorationStyle('Ex: 1.4 kWh', const Icon(Icons.bolt)),
               keyboardType: TextInputType.number,
             )
           ],

@@ -27,7 +27,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
                 width: MediaQuery.of(context).size.width,
                 child: IconButton(
                     style: const ButtonStyle(
-                        shape: MaterialStatePropertyAll(LinearBorder.none)),
+                        shape: WidgetStatePropertyAll(LinearBorder.none)),
                     onPressed: () => {},
                     icon: const Icon(
                       Icons.light_mode,
@@ -39,7 +39,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
                 width: MediaQuery.of(context).size.width,
                 child: IconButton(
                     style: const ButtonStyle(
-                        shape: MaterialStatePropertyAll(LinearBorder.none)),
+                        shape: WidgetStatePropertyAll(LinearBorder.none)),
                     onPressed: () => {},
                     icon: const Icon(
                       Icons.dark_mode,

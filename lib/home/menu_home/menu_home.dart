@@ -33,18 +33,18 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
         Device(icon: Icons.bathtub, name: 'Banheiro', state: true);
     Device abajur = Device(icon: Icons.lightbulb, name: 'Abajur', state: true);
     Device luzCozinha =
-        Device(icon: Icons.lightbulb, name: 'Luz Cozinha', state: false);
+        Device(icon: Icons.wb_incandescent, name: 'Luz Cozinha', state: false);
     Device luzQuarto =
-        Device(icon: Icons.lightbulb, name: 'Luz Quarto', state: true);
+        Device(icon: Icons.wb_incandescent, name: 'Luz Quarto', state: true);
     Device luzSala =
-        Device(icon: Icons.lightbulb, name: 'Luz Sala', state: false);
+        Device(icon: Icons.wb_incandescent, name: 'Luz Sala', state: false);
     Device garagem = Device(icon: Icons.garage, name: 'Garagem', state: false);
     Device televisao = Device(icon: Icons.tv, name: 'TV Sala', state: false);
 
     Device irrigador =
         Device(icon: Icons.shower, name: 'Irrigador Quintal', state: false);
     Device luzQuintal =
-        Device(icon: Icons.lightbulb, name: 'Luz Quintal', state: false);
+        Device(icon: Icons.wb_incandescent, name: 'Luz Quintal', state: false);
 
     general = [
       ItemHome(device: banheiro),

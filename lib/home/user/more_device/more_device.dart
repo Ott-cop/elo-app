@@ -12,11 +12,11 @@ class _MoreDeviceWidgetState extends State<MoreDeviceWidget> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () => {},
+        onPressed: () => Navigator.of(context).pushNamed("/home-add_device"),
         style: ButtonStyle(
-            minimumSize: const MaterialStatePropertyAll(Size(10, 10)),
-            backgroundColor: const MaterialStatePropertyAll(Colors.white),
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+            minimumSize: const WidgetStatePropertyAll(Size(10, 10)),
+            backgroundColor: const WidgetStatePropertyAll(Colors.white),
+            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10)))),
         icon: Icon(
           Icons.add,

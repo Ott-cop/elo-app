@@ -1,4 +1,5 @@
 import 'package:elo/home/home.dart';
+import 'package:elo/home/user/more_device/adding_device.dart';
 import 'package:elo/login/login.dart';
 import 'package:elo/menu/menu.dart';
 import 'package:elo/styles/global.dart';
@@ -26,11 +27,12 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/",
+      initialRoute: "/menu",
       routes: {
         "/": (_) => const LoginPage(),
         "/menu": (_) => const Menu(),
         "/home": (_) => const HomePage(),
+        "/home-add_device": (_) => const AddingDevice()
       },
     );
   }
