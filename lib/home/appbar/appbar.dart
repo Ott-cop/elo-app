@@ -1,10 +1,10 @@
-import 'package:elo/home/user/more_device/more_device.dart';
-import 'package:elo/home/user/notifications/notifications.dart';
+import 'package:elo/home/appbar/add_device/add_device_button.dart';
+import 'package:elo/home/appbar/notifications/notifications.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
-class UserWidget extends StatelessWidget {
-  const UserWidget({super.key});
+class AppBarHome extends StatelessWidget {
+  const AppBarHome({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,10 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () => {},
-      icon: const Icon(Icons.notifications),
+      icon: const Icon(
+        Icons.notifications,
+        size: 26,
+      ),
     );
   }
 }

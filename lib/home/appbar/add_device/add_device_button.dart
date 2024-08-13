@@ -20,8 +20,9 @@ class _MoreDeviceWidgetState extends State<MoreDeviceWidget> {
                 borderRadius: BorderRadius.circular(10)))),
         icon: Icon(
           Icons.add,
+          applyTextScaling: true,
           color: Global().backgroundColor,
-          size: 20,
+          size: 22,
         ));
   }
 }

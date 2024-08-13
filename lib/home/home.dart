@@ -1,6 +1,6 @@
 import 'package:elo/home/energy_used/energy_used.dart';
 import 'package:elo/home/menu_home/menu_home.dart';
-import 'package:elo/home/user/user.dart';
+import 'package:elo/home/appbar/appbar.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +20,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: Global().backgroundColor,
       body: safeAreaModified(
         child: const Column(
           children: [
-            UserWidget(),
+            AppBarHome(),
             SizedBox(
               height: 15,
             ),
@@ -33,9 +34,6 @@ class _HomePageState extends State<HomePage> {
               height: 15,
             ),
             Expanded(child: MenuHomeWidget()),
-            // SizedBox(
-            //   height: 100,
-            // )
           ],
         ),
       ),

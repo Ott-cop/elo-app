@@ -1,6 +1,7 @@
-import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:elo/home/menu_home/item_home/item_home.dart';
+import 'package:elo/repositories/item_home_repositories/item_home_repositories.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MenuHomeWidget extends StatefulWidget {
   const MenuHomeWidget({super.key});
@@ -29,53 +30,11 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
   void initState() {
     super.initState();
     tabController = TabController(length: rooms.length, vsync: this);
-    Device banheiro =
-        Device(icon: Icons.bathtub, name: 'Banheiro', state: true);
-    Device abajur = Device(icon: Icons.lightbulb, name: 'Abajur', state: true);
-    Device luzCozinha =
-        Device(icon: Icons.wb_incandescent, name: 'Luz Cozinha', state: false);
-    Device luzQuarto =
-        Device(icon: Icons.wb_incandescent, name: 'Luz Quarto', state: true);
-    Device luzSala =
-        Device(icon: Icons.wb_incandescent, name: 'Luz Sala', state: false);
-    Device garagem = Device(icon: Icons.garage, name: 'Garagem', state: false);
-    Device televisao = Device(icon: Icons.tv, name: 'TV Sala', state: false);
-
-    Device irrigador =
-        Device(icon: Icons.shower, name: 'Irrigador Quintal', state: false);
-    Device luzQuintal =
-        Device(icon: Icons.wb_incandescent, name: 'Luz Quintal', state: false);
-
-    general = [
-      ItemHome(device: banheiro),
-      ItemHome(device: abajur),
-      ItemHome(device: luzCozinha),
-      ItemHome(device: garagem),
-      ItemHome(device: irrigador),
-      ItemHome(device: luzQuintal),
-      ItemHome(device: luzSala),
-      ItemHome(device: televisao),
-      ItemHome(device: luzQuarto),
-    ];
-    livingRoom = [
-      ItemHome(device: luzSala),
-      ItemHome(device: televisao),
-    ];
-    room = [
-      ItemHome(device: luzQuarto),
-      ItemHome(device: abajur),
-    ];
-    bathroom = [
-      ItemHome(device: banheiro),
-    ];
-    yard = [
-      ItemHome(device: luzQuintal),
-      ItemHome(device: irrigador),
-    ];
   }
 
   @override
   Widget build(BuildContext context) {
+    final itemHomeRepository = Provider.of<ItemHomeRepositories>(context);
     return Column(
       children: [
         TabBar(
@@ -97,63 +56,71 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
             if (tabController.index == 0) {
               return SingleChildScrollView(
                 scrollDirection: Axis.vertical,
-                child: Wrap(
-                    direction: Axis.horizontal,
-                    spacing: 15,
-                    runSpacing: 15,
-                    children: List.generate(general.length, (index) {
-                      return general[index];
-                    })),
-              );
-            } else if (tabController.index == 1) {
-              return SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Wrap(
-                  direction: Axis.horizontal,
-                  spacing: 15,
-                  runSpacing: 15,
-                  children: List.generate(livingRoom.length, (index) {
-                    return livingRoom[index];
-                  }),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 100),
+                  child: Wrap(
+                      alignment: WrapAlignment.center,
+                      direction: Axis.horizontal,
+                      spacing: 15,
+                      runSpacing: 15,
+                      children: List.generate(
+                          itemHomeRepository.listItems.length, (index) {
+                        return ItemHome(
+                            device: itemHomeRepository.listItems[index]);
+                      })),
                 ),
               );
-            } else if (tabController.index == 2) {
-              return SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Wrap(
-                  direction: Axis.horizontal,
-                  spacing: 15,
-                  runSpacing: 15,
-                  children: List.generate(room.length, (index) {
-                    return room[index];
-                  }),
-                ),
-              );
-            } else if (tabController.index == 3) {
-              return SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Wrap(
-                  direction: Axis.horizontal,
-                  spacing: 15,
-                  runSpacing: 15,
-                  children: List.generate(bathroom.length, (index) {
-                    return bathroom[index];
-                  }),
-                ),
-              );
-            } else if (tabController.index == 4) {
-              return SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Wrap(
-                  direction: Axis.horizontal,
-                  spacing: 15,
-                  runSpacing: 15,
-                  children: List.generate(yard.length, (index) {
-                    return yard[index];
-                  }),
-                ),
-              );
-            } else {
+            } // else if (tabController.index == 1) {
+            //   return SingleChildScrollView(
+            //     scrollDirection: Axis.vertical,
+            //     child: Wrap(
+            //       alignment: WrapAlignment.center,
+            //       direction: Axis.horizontal,
+            //       spacing: 15,
+            //       runSpacing: 15,
+            //       children: List.generate(livingRoom.length, (index) {
+            //         return livingRoom[index];
+            //       }),
+            //     ),
+            //   );
+            // } else if (tabController.index == 2) {
+            //   return SingleChildScrollView(
+            //     scrollDirection: Axis.vertical,
+            //     child: Wrap(
+            //       direction: Axis.horizontal,
+            //       spacing: 15,
+            //       runSpacing: 15,
+            //       children: List.generate(room.length, (index) {
+            //         return room[index];
+            //       }),
+            //     ),
+            //   );
+            // } else if (tabController.index == 3) {
+            //   return SingleChildScrollView(
+            //     scrollDirection: Axis.vertical,
+            //     child: Wrap(
+            //       direction: Axis.horizontal,
+            //       spacing: 15,
+            //       runSpacing: 15,
+            //       children: List.generate(bathroom.length, (index) {
+            //         return bathroom[index];
+            //       }),
+            //     ),
+            //   );
+            // } else if (tabController.index == 4) {
+            //   return SingleChildScrollView(
+            //     scrollDirection: Axis.vertical,
+            //     child: Wrap(
+            //       direction: Axis.horizontal,
+            //       spacing: 15,
+            //       runSpacing: 15,
+            //       children: List.generate(yard.length, (index) {
+            //         return yard[index];
+            //       }),
+            //     ),
+            //   );
+            // }
+            else {
               return Container();
             }
           }),

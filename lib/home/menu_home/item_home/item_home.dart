@@ -1,4 +1,5 @@
 import 'package:elo/home/menu_home/item_home/device_home_model.dart';
+import 'package:elo/home/menu_home/item_home/item_settings/item_settings.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _ItemHomeState extends State<ItemHome> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.device.state) {
+    if (widget.device.state!) {
       color = WidgetStatePropertyAll(Global().backgroundColor);
       iconColor = Global().primaryColor;
     } else {
@@ -40,16 +41,39 @@ class _ItemHomeState extends State<ItemHome> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            widget.device.icon,
-            color: iconColor,
-            size: 40,
-          ),
+          Stack(children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Icon(
+                widget.device.icon!.icon,
+                color: iconColor,
+                size: 40,
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => ItemSettings(
+                                device: widget.device,
+                              )))
+                },
+                icon: const Icon(
+                  Icons.more_vert,
+                  size: 25,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ]),
           const SizedBox(
-            height: 10,
+            height: 0,
           ),
           Text(
-            widget.device.name,
+            widget.device.name!,
             style: const TextStyle(fontSize: 15),
           ),
           const SizedBox(
@@ -57,7 +81,7 @@ class _ItemHomeState extends State<ItemHome> {
           ),
           Switch(
               thumbColor: color,
-              value: widget.device.state,
+              value: widget.device.state!,
               onChanged: (value) {
                 setState(() {
                   if (value) {
@@ -65,7 +89,7 @@ class _ItemHomeState extends State<ItemHome> {
                   } else {
                     color = const WidgetStatePropertyAll(Colors.white);
                   }
-                  widget.device.state = !widget.device.state;
+                  widget.device.state = !widget.device.state!;
                 });
               }),
         ],

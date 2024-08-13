@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Global {
   Color primaryColor = const Color(0xFFD86506);
-  Color splashPrimaryColor = Color.fromARGB(255, 250, 156, 79);
+  Color splashPrimaryColor = const Color.fromARGB(255, 250, 156, 79);
   Color backgroundColor = const Color(0xFF030D13);
   Color backgroundColor2 = const Color.fromARGB(255, 5, 20, 29);
 }
@@ -10,7 +10,8 @@ class Global {
 SafeArea safeAreaModified({required Widget child}) {
   return SafeArea(
     top: true,
-    minimum: const EdgeInsets.only(top: 50, left: 20, right: 20),
+    bottom: false,
+    minimum: const EdgeInsets.only(top: 65, left: 20, right: 20),
     child: child,
   );
 }

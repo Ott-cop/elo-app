@@ -1,12 +1,19 @@
 import 'package:elo/home/home.dart';
-import 'package:elo/home/user/more_device/adding_device.dart';
+import 'package:elo/home/appbar/add_device/adding_device.dart';
 import 'package:elo/login/login.dart';
 import 'package:elo/menu/menu.dart';
+import 'package:elo/outlay/outlay.dart';
+import 'package:elo/profile/profile.dart';
+import 'package:elo/repositories/item_home_repositories/item_home_repositories.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => ItemHomeRepositories())],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -27,12 +34,14 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/menu",
+      initialRoute: "/",
       routes: {
-        "/": (_) => const LoginPage(),
-        "/menu": (_) => const Menu(),
+        "/login": (_) => const LoginPage(),
+        "/": (_) => const Menu(),
         "/home": (_) => const HomePage(),
-        "/home-add_device": (_) => const AddingDevice()
+        "/outlay": (_) => const OutlayPage(),
+        "/profile": (_) => const ProfilePage(),
+        "/home-add_device": (_) => const AddDevicePage()
       },
     );
   }
