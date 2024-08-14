@@ -39,13 +39,14 @@ class AddingDeviceController {
   void validateForm(BuildContext context, bool validate) {
     if (validate) {
       Provider.of<ItemHomeRepositories>(context, listen: false).add(Device(
-          id: const UuidV4(),
+          id: const UuidV4().generate(),
           icon: _icon!,
           name: _deviceName!,
           port: _port!,
           state: false));
+
       ScaffoldMessenger.of(context)
-          .showSnackBar(snackBarStyle("Criado com sucesso!", Colors.green));
+          .showSnackBar(snackBar("Criado com sucesso!", Colors.green));
     }
   }
 }

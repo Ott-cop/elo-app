@@ -1,20 +1,11 @@
 import 'dart:collection';
 import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/v4.dart';
 
 class ItemHomeRepositories extends ChangeNotifier {
-  final List<Device> _listItems = [
-    Device(
-        id: const UuidV4(),
-        icon: const Icon(Icons.shower),
-        name: "Chuveiro",
-        port: 10,
-        state: false)
-  ];
+  final List<Device> _listItems = [];
 
-  UnmodifiableListView<Device> get listItems =>
-      UnmodifiableListView(_listItems);
+  UnmodifiableListView get listItems => UnmodifiableListView(_listItems);
 
   add(Device item) {
     _listItems.add(item);
@@ -37,8 +28,8 @@ class ItemHomeRepositories extends ChangeNotifier {
     notifyListeners();
   }
 
-  remove(Device item) {
-    _listItems.remove(item);
+  delete(String deviceId) {
+    _listItems.removeWhere((listItem) => listItem.id == deviceId);
     notifyListeners();
   }
 }

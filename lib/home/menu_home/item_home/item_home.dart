@@ -3,10 +3,9 @@ import 'package:elo/home/menu_home/item_home/item_settings/item_settings.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class ItemHome extends StatefulWidget {
-  late Device device;
-  ItemHome({super.key, required this.device});
+  final Device device;
+  const ItemHome({super.key, required this.device});
 
   @override
   State<ItemHome> createState() => _ItemHomeState();

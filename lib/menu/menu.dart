@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 class Menu extends StatefulWidget {
   static int currentPage = 0;
-  // late Widget page;
+
   const Menu({super.key});
   @override
   State<Menu> createState() => _MenuState();
@@ -40,14 +40,14 @@ class _MenuState extends State<Menu> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.only(bottom: 15, left: 50, right: 50),
             child: Container(
               height: 70,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: Global().backgroundColor2,
-                    width: 1,
+                    color: Colors.white.withOpacity(0.4),
+                    width: 2,
                   )),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),

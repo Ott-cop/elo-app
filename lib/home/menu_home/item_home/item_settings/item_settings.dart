@@ -1,5 +1,6 @@
 import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:elo/home/menu_home/item_home/item_settings/item_settings_controller.dart';
+import 'package:elo/home/menu_home/item_home/item_settings/item_settings_delete.dart';
 import 'package:elo/outlay/energy_used/style/style.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
@@ -126,35 +127,25 @@ class _ItemSettingsState extends State<ItemSettings> {
         const SizedBox(
           height: 20,
         ),
-        ElevatedButton(
+        buttonDefault(
+            backgroundColor: Global().primaryColor,
+            overlayColor: Global().splashPrimaryColor,
+            icon: Icon(
+              Icons.check,
+              color: Global().backgroundColor,
+            ),
             onPressed: () {
               _form.setDevice(
                   context, _formKey.currentState!.validate(), widget.device.id);
             },
-            style: ButtonStyle(
-                elevation: const WidgetStatePropertyAll(0),
-                overlayColor:
-                    WidgetStatePropertyAll(Global().splashPrimaryColor),
-                backgroundColor: WidgetStatePropertyAll(Global().primaryColor),
-                shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(color: Global().primaryColor)))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.check,
-                  color: Global().backgroundColor,
-                ),
-                Text(
-                  "Alterar",
-                  style: TextStyle(
-                      color: Global().backgroundColor,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ))
+            text: "Alterar",
+            textColor: Global().backgroundColor),
+        const SizedBox(
+          height: 50,
+        ),
+        ItemSettingsDelete(
+          deviceId: widget.device.id,
+        )
       ],
     )));
   }

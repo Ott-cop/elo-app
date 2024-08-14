@@ -1,7 +1,10 @@
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
-InputDecoration inputDecorationStyle(String? hint, Icon? icon) {
+InputDecoration inputDecorationStyle(
+  String? hint,
+  Icon? icon,
+) {
   return InputDecoration(
       hintText: hint,
       prefixIcon: icon,

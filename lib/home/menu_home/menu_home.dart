@@ -1,3 +1,4 @@
+import 'package:elo/home/appbar/add_device/add_device_button_model.dart';
 import 'package:elo/home/menu_home/item_home/item_home.dart';
 import 'package:elo/repositories/item_home_repositories/item_home_repositories.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,10 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
   @override
   Widget build(BuildContext context) {
     final itemHomeRepository = Provider.of<ItemHomeRepositories>(context);
+    final List<Widget> list =
+        List.generate(itemHomeRepository.listItems.length, (index) {
+      return ItemHome(device: itemHomeRepository.listItems[index]);
+    });
     return Column(
       children: [
         TabBar(
@@ -63,11 +68,10 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
                       direction: Axis.horizontal,
                       spacing: 15,
                       runSpacing: 15,
-                      children: List.generate(
-                          itemHomeRepository.listItems.length, (index) {
-                        return ItemHome(
-                            device: itemHomeRepository.listItems[index]);
-                      })),
+                      children: [
+                        const AddDeviceButtonModel(),
+                        ...list,
+                      ]),
                 ),
               );
             } // else if (tabController.index == 1) {

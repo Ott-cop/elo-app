@@ -134,35 +134,19 @@ class _AddDevicePageState extends State<AddDevicePage> {
         const SizedBox(
           height: 20,
         ),
-        ElevatedButton(
-            onPressed: () {
-              _form.validateForm(context, _formKey.currentState!.validate());
-            },
-            style: ButtonStyle(
-                elevation: const WidgetStatePropertyAll(0),
-                overlayColor:
-                    WidgetStatePropertyAll(Global().splashPrimaryColor),
-                backgroundColor: WidgetStatePropertyAll(Global().primaryColor),
-                shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(color: Global().primaryColor)))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.check,
-                  color: Global().backgroundColor,
-                ),
-                Text(
-                  "Criar",
-                  style: TextStyle(
-                      color: Global().backgroundColor,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ))
+        buttonDefault(
+            backgroundColor: Global().primaryColor,
+            overlayColor: Global().splashPrimaryColor,
+            onPressed: () =>
+                _form.validateForm(context, _formKey.currentState!.validate()),
+            icon: Icon(
+              Icons.check,
+              color: Global().backgroundColor,
+            ),
+            text: 'Criar',
+            textColor: Global().backgroundColor),
       ],
     )));
   }
 }
+// _form.validateForm(context, _formKey.currentState!.validate());
