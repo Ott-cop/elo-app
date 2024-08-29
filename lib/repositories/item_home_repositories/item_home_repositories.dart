@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class ItemHomeRepositories extends ChangeNotifier {
   final List<Device> _listItems = [];
 
-  UnmodifiableListView get listItems => UnmodifiableListView(_listItems);
+  UnmodifiableListView<Device> get listItems =>
+      UnmodifiableListView(_listItems);
 
   add(Device item) {
     _listItems.add(item);

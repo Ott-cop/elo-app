@@ -1,3 +1,5 @@
+import 'package:delightful_toast/delight_toast.dart';
+import 'package:delightful_toast/toast/components/toast_card.dart';
 import 'package:flutter/material.dart';
 
 class Global {
@@ -10,8 +12,9 @@ class Global {
 SafeArea safeAreaModified({required Widget child}) {
   return SafeArea(
     top: true,
+    maintainBottomViewPadding: true,
     bottom: false,
-    minimum: const EdgeInsets.only(top: 65, left: 20, right: 20),
+    minimum: const EdgeInsets.only(top: 45, left: 20, right: 20),
     child: child,
   );
 }
@@ -27,6 +30,26 @@ SnackBar snackBar(String? message, Color? color) {
     margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 90),
     backgroundColor: color,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  );
+}
+
+DelightToastBar toast({
+  required String message,
+  Color? textColor,
+  Color? color,
+  Icon? icon,
+}) {
+  return DelightToastBar(
+    autoDismiss: true,
+    snackbarDuration: const Duration(seconds: 2),
+    builder: (context) => ToastCard(
+      color: color,
+      leading: icon,
+      title: Text(
+        message,
+        style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+      ),
+    ),
   );
 }
 
@@ -81,4 +104,25 @@ ElevatedButton buttonDefault(
       ],
     ),
   );
+}
+
+InputDecoration inputDecorationStyle(
+    {String? hint, Text? label, Icon? icon, Color? color}) {
+  color ??= Global().primaryColor;
+  // label ??= "";
+  return InputDecoration(
+      label: label,
+      hintText: hint,
+      prefixIcon: icon,
+      hoverColor: Colors.red,
+      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: color)),
+      errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.red),
+          borderRadius: BorderRadius.circular(10)),
+      focusedErrorBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+      ));
 }

@@ -1,4 +1,3 @@
-import 'package:elo/outlay/energy_used/style/style.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -82,11 +81,13 @@ class _ConfigureValuePageState extends State<ConfigureValuePage> {
               controller: _controller,
               onChanged: (v) {
                 setState(() {
-                  print(v);
+                  debugPrint(v);
                 });
               },
-              decoration:
-                  inputDecorationStyle('Ex: 1.4 kWh', const Icon(Icons.bolt)),
+              decoration: inputDecorationStyle(
+                  hint: 'Ex: 1.4 kWh',
+                  color: Colors.white,
+                  icon: const Icon(Icons.bolt)),
               keyboardType: TextInputType.number,
             )
           ],

@@ -15,7 +15,7 @@ class OutlayPage extends StatelessWidget {
           children: [
             const EnergyUsedPageWidget(
               icon: Icons.attach_money,
-              iconModal: Icons.settings,
+              iconModal: Icon(Icons.settings),
               color: Colors.green,
               typeDate: 'Economizou',
               energyUsed: 'R\$ 103,50',
@@ -26,7 +26,7 @@ class OutlayPage extends StatelessWidget {
             ),
             EnergyUsedPageWidget(
               icon: Icons.shower,
-              iconModal: Icons.info,
+              iconModal: const Icon(Icons.info),
               color: Colors.red.shade900,
               typeDate: 'Maior Gasto',
               energyUsed: 'Ar condicionado',

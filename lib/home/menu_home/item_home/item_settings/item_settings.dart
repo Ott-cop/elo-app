@@ -1,7 +1,6 @@
 import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:elo/home/menu_home/item_home/item_settings/item_settings_controller.dart';
 import 'package:elo/home/menu_home/item_home/item_settings/item_settings_delete.dart';
-import 'package:elo/outlay/energy_used/style/style.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +58,10 @@ class _ItemSettingsState extends State<ItemSettings> {
                   padding: const EdgeInsets.only(right: 4),
                   child: DropdownButtonFormField<Icon>(
                     onChanged: (icon) => {_form.setIcon = icon},
-                    hint: widget.device.icon,
+                    hint: Icon(
+                      widget.device.icon!.icon,
+                      color: Theme.of(context).hintColor,
+                    ),
                     items: <Icon>[
                       const Icon(Icons.lightbulb),
                       const Icon(Icons.laptop_chromebook),
@@ -78,49 +80,54 @@ class _ItemSettingsState extends State<ItemSettings> {
                       );
                     }).toList(),
                     dropdownColor: Global().backgroundColor2,
-                    decoration: inputDecorationStyle(null, null),
+                    borderRadius: BorderRadius.circular(10),
+                    focusColor: Global().backgroundColor,
+                    decoration: inputDecorationStyle(),
                     isExpanded: true,
                   )),
               Expanded(
                 child: TextFormField(
                   validator: _form.setDeviceName,
                   controller: _controller,
-                  decoration: inputDecorationStyle(widget.device.name, null),
+                  decoration: inputDecorationStyle(hint: widget.device.name),
                 ),
               ),
               Container(
-                  width: 120,
-                  padding: const EdgeInsets.only(left: 4),
-                  child: DropdownButtonFormField(
-                    onChanged: (port) => {_form.setPort = port},
-                    items: <int>[
-                      1,
-                      2,
-                      3,
-                      4,
-                      5,
-                      6,
-                      7,
-                      8,
-                      9,
-                      10,
-                      11,
-                      12,
-                      13,
-                      14,
-                      15
-                    ].map((int n) {
-                      return DropdownMenuItem(
-                        alignment: Alignment.center,
-                        value: n,
-                        child: Text("$n"),
-                      );
-                    }).toList(),
-                    hint: Text("${widget.device.port}"),
-                    dropdownColor: Global().backgroundColor2,
-                    decoration: inputDecorationStyle(null, null),
-                    isExpanded: true,
-                  ))
+                width: 120,
+                padding: const EdgeInsets.only(left: 4),
+                child: DropdownButtonFormField(
+                  onChanged: (port) => {_form.setPort = port},
+                  items: <int>[
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ].map((int n) {
+                    return DropdownMenuItem(
+                      alignment: Alignment.center,
+                      value: n,
+                      child: Text("$n"),
+                    );
+                  }).toList(),
+                  hint: Text("${widget.device.port}"),
+                  focusColor: Global().backgroundColor,
+                  borderRadius: BorderRadius.circular(10),
+                  dropdownColor: Global().backgroundColor2,
+                  decoration: inputDecorationStyle(),
+                  isExpanded: true,
+                ),
+              )
             ],
           ),
         ),

@@ -37,14 +37,22 @@ class ItemSettingsController {
     if (validate) {
       Provider.of<ItemHomeRepositories>(context, listen: false).edit(
           Device(id: deviceId, icon: _icon, name: _deviceName, port: _port));
-      ScaffoldMessenger.of(context)
-          .showSnackBar(snackBar("Editado com sucesso!", Colors.green));
+
+      toast(
+              message: "Editado com sucesso!",
+              color: Colors.green,
+              icon: const Icon(Icons.check))
+          .show(context);
     }
   }
 
   void deleteDevice(BuildContext context, String deviceId) {
     Provider.of<ItemHomeRepositories>(context, listen: false).delete(deviceId);
-    ScaffoldMessenger.of(context)
-        .showSnackBar(snackBar("Deletado com sucesso!", Colors.green));
+
+    toast(
+            message: "Deletado com sucesso!",
+            color: Colors.red,
+            icon: const Icon(Icons.delete))
+        .show(context);
   }
 }
