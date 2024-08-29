@@ -27,12 +27,18 @@ class ValidateForm {
   void validateForm(BuildContext context, bool validate) {
     if (validate) {
       if ((email == 'teste@teste.com') && (password == '12345678')) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            snackBarStyle('Login feito com sucesso!', Colors.green));
-        Navigator.of(context).pushReplacementNamed("/menu");
+        toast(
+                message: "Login feito com sucesso!",
+                color: Colors.green,
+                icon: const Icon(Icons.login))
+            .show(context);
+        Navigator.of(context).pushReplacementNamed("/");
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-            snackBarStyle('As credenciais estão incorretas.', Colors.red));
+        toast(
+                icon: const Icon(Icons.close),
+                color: Colors.red,
+                message: "As credenciais estão incorretas.")
+            .show(context);
       }
     }
   }

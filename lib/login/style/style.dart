@@ -38,18 +38,18 @@ BoxDecoration boxDecoration() {
   ));
 }
 
-InputDecoration inputDecorationStyle(String label, Color color, IconData icon) {
-  return InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(
-        icon,
-        color: color,
-      ),
-      floatingLabelStyle: TextStyle(color: Global().primaryColor),
-      focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Global().primaryColor)),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)));
-}
+// InputDecoration inputDecorationStyle(String label, Color color, IconData icon) {
+//   return InputDecoration(
+//       labelText: label,
+//       prefixIcon: Icon(
+//         icon,
+//         color: color,
+//       ),
+//       floatingLabelStyle: TextStyle(color: Global().primaryColor),
+//       focusedBorder: OutlineInputBorder(
+//           borderSide: BorderSide(color: Global().primaryColor)),
+//       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)));
+// }
 
 ButtonStyle buttonStyle() {
   return ButtonStyle(

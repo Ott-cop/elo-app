@@ -3,10 +3,9 @@ import 'package:elo/home/menu_home/item_home/item_settings/item_settings.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class ItemHome extends StatefulWidget {
-  late Device device;
-  ItemHome({super.key, required this.device});
+  final Device device;
+  const ItemHome({super.key, required this.device});
 
   @override
   State<ItemHome> createState() => _ItemHomeState();
@@ -37,21 +36,14 @@ class _ItemHomeState extends State<ItemHome> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Global().primaryColor)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+      child: Stack(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisSize: MainAxisSize.min,
         children: [
-          Stack(children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Icon(
-                widget.device.icon!.icon,
-                color: iconColor,
-                size: 40,
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
+          Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
               child: IconButton(
                 onPressed: () => {
                   Navigator.push(
@@ -62,36 +54,50 @@ class _ItemHomeState extends State<ItemHome> {
                               )))
                 },
                 icon: const Icon(
-                  Icons.more_vert,
-                  size: 25,
+                  Icons.edit,
+                  size: 20,
                   color: Colors.white,
                 ),
               ),
-            )
-          ]),
-          const SizedBox(
-            height: 0,
+            ),
           ),
-          Text(
-            widget.device.name!,
-            style: const TextStyle(fontSize: 15),
+          Align(
+            alignment: Alignment.center,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    widget.device.icon!.icon,
+                    color: iconColor,
+                    size: 40,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    widget.device.name!,
+                    style: const TextStyle(fontSize: 15),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Switch(
+                      thumbColor: color,
+                      value: widget.device.state!,
+                      onChanged: (value) {
+                        setState(() {
+                          if (value) {
+                            color = WidgetStatePropertyAll(
+                                Global().backgroundColor);
+                          } else {
+                            color = const WidgetStatePropertyAll(Colors.white);
+                          }
+                          widget.device.state = !widget.device.state!;
+                        });
+                      }),
+                ]),
           ),
-          const SizedBox(
-            height: 5,
-          ),
-          Switch(
-              thumbColor: color,
-              value: widget.device.state!,
-              onChanged: (value) {
-                setState(() {
-                  if (value) {
-                    color = WidgetStatePropertyAll(Global().backgroundColor);
-                  } else {
-                    color = const WidgetStatePropertyAll(Colors.white);
-                  }
-                  widget.device.state = !widget.device.state!;
-                });
-              }),
         ],
       ),
     );

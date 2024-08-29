@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class EnergyUsedPageWidget extends StatefulWidget {
   final IconData icon;
-  final IconData? iconModal;
+  final Icon? iconModal;
   final Color color;
   final String typeDate;
   final String energyUsed;
@@ -31,7 +31,7 @@ class _EnergyUsedPageWidgetState extends State<EnergyUsedPageWidget> {
   @override
   Widget build(BuildContext context) {
     double mqw = MediaQuery.sizeOf(context).width;
-    debugPrint(mqw.toString());
+    // debugPrint(mqw.toString());
     if (mqw > 370) {
       isVisible = true;
       fontSize = 20;
@@ -41,10 +41,9 @@ class _EnergyUsedPageWidgetState extends State<EnergyUsedPageWidget> {
       fontSize = 15;
       iconSize = 50;
     } else if (mqw > 300) {
-      alignment = MainAxisAlignment.center;
       isVisible = false;
-      fontSize = 25;
-      // iconSize = 40;
+      fontSize = 15;
+      iconSize = 40;
     }
     return Container(
       height: 100,
@@ -78,44 +77,43 @@ class _EnergyUsedPageWidgetState extends State<EnergyUsedPageWidget> {
               endIndent: 25,
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 200,
-                child: Text(
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
                   widget.typeDate,
                   style: TextStyle(
                       color: widget.color, fontWeight: FontWeight.bold),
                 ),
-              ),
-              SizedBox(
-                width: 200,
-                child: Text(
+                Text(
                   widget.energyUsed,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: fontSize),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Builder(builder: (context) {
-            if (widget.iconModal != null) {
-              return IconButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => widget.toScreen));
-                },
-                icon: Icon(
-                  widget.iconModal,
-                  size: 30,
-                ),
-              );
-            } else {
-              return Container();
-            }
-          })
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Builder(builder: (context) {
+              if (widget.iconModal != null) {
+                return IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => widget.toScreen));
+                  },
+                  icon: Icon(
+                    widget.iconModal!.icon,
+                    size: 30,
+                  ),
+                );
+              } else {
+                return Container();
+              }
+            }),
+          )
         ],
       ),
     );

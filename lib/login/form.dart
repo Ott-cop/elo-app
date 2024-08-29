@@ -52,7 +52,15 @@ class _LoginInputs extends State<LoginInputs> {
                   focusNode: _iconNotifier.focusEmail,
                   validator: (value) => _form.validateEmail(value),
                   decoration: inputDecorationStyle(
-                      'Email', _iconNotifier.emailState, Icons.email),
+                      label: Text(
+                        'Email',
+                        style: TextStyle(color: _iconNotifier.emailState),
+                      ),
+                      color: _iconNotifier.emailState,
+                      icon: Icon(
+                        Icons.email,
+                        color: _iconNotifier.emailState,
+                      )),
                 ),
               );
             },
@@ -68,7 +76,15 @@ class _LoginInputs extends State<LoginInputs> {
                 focusNode: _iconNotifier.focusPassword,
                 validator: (value) => _form.validatePassword(value),
                 decoration: inputDecorationStyle(
-                    'Senha', _iconNotifier.passwordState, Icons.lock),
+                    label: Text(
+                      'Senha',
+                      style: TextStyle(color: _iconNotifier.passwordState),
+                    ),
+                    color: _iconNotifier.passwordState,
+                    icon: Icon(
+                      Icons.lock,
+                      color: _iconNotifier.passwordState,
+                    )),
               );
             },
           ),
