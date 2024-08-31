@@ -107,13 +107,17 @@ ElevatedButton buttonDefault(
 }
 
 InputDecoration inputDecorationStyle(
-    {String? hint, Text? label, Icon? icon, Color? color}) {
+    {String? hint,
+    Text? label,
+    Icon? icon,
+    Color? color,
+    FloatingLabelBehavior? floatingLabel}) {
   color ??= Global().primaryColor;
-  // label ??= "";
   return InputDecoration(
       label: label,
       hintText: hint,
       prefixIcon: icon,
+      floatingLabelBehavior: floatingLabel,
       hoverColor: Colors.red,
       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: color)),
       errorBorder: OutlineInputBorder(
