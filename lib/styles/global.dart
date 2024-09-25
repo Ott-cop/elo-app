@@ -118,6 +118,7 @@ InputDecoration inputDecorationStyle(
       hintText: hint,
       prefixIcon: icon,
       floatingLabelBehavior: floatingLabel,
+      labelStyle: TextStyle(color: color),
       hoverColor: Colors.red,
       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: color)),
       errorBorder: OutlineInputBorder(

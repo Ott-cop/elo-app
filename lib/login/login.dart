@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:elo/login/form.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +25,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Image(
                     image: AssetImage("assets/logo/LOGO_Oficial.png"),
-                    height: 200,
-                  ),
-                  SizedBox(
-                    height: 40,
+                    height: 350,
                   ),
                   Text(
                     'Seja bem-vindo!',

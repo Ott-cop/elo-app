@@ -1,4 +1,3 @@
-import 'package:elo/outlay/energy_used/style/style.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +12,7 @@ class InputUserInformation extends StatefulWidget {
 }
 
 class _InputUserInformationState extends State<InputUserInformation> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,16 +20,15 @@ class _InputUserInformationState extends State<InputUserInformation> {
         SizedBox(
           height: 10,
         ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            widget.information,
-            style: TextStyle(fontSize: 20, color: Global().primaryColor),
+        Form(
+          key: _formKey,
+          child: TextFormField(
+            decoration: inputDecorationStyle(
+              floatingLabel: FloatingLabelBehavior.always,
+              label: Text(widget.information),
+            ),
+            enabled: false,
           ),
-        ),
-        TextFormField(
-          decoration: inputDecorationStyle(widget.text, null),
-          enabled: false,
         )
       ],
     );
