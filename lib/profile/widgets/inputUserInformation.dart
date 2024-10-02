@@ -1,4 +1,3 @@
-import 'package:elo/outlay/energy_used/style/style.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -20,15 +19,10 @@ class _InputUserInformationState extends State<InputUserInformation> {
         SizedBox(
           height: 10,
         ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            widget.information,
-            style: TextStyle(fontSize: 20, color: Global().primaryColor),
-          ),
-        ),
         TextFormField(
-          decoration: inputDecorationStyle(widget.text, null),
+          decoration: inputDecorationStyle(
+              label: Text('${widget.information}'),
+              floatingLabel: FloatingLabelBehavior.always),
           enabled: false,
         )
       ],

@@ -14,7 +14,7 @@ class _UserInformationState extends State<UserInformation> {
     return const Column(
       children: [
         InputUserInformation(information: "Nome", text: "Bartholomeu"),
-        InputUserInformation(information: "Sobre Nome", text: "Santos"),
+        InputUserInformation(information: "Sobrenome", text: "Santos"),
         InputUserInformation(
             information: "Número de Telefone", text: "(00) 0000-0000"),
         InputUserInformation(
