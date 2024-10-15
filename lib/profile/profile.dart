@@ -14,13 +14,13 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   var tabs = [
-    Tab(
+    const Tab(
       text: 'Dados',
     ),
-    Tab(
+    const Tab(
       text: 'Faturas',
     ),
-    Tab(
+    const Tab(
       text: 'Perguntas Frequentes',
     )
   ];
@@ -29,14 +29,12 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(length: tabs.length, vsync: this);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     tabController.dispose();
   }
@@ -51,16 +49,20 @@ class _ProfilePageState extends State<ProfilePage>
         padding: const EdgeInsets.only(bottom: 90),
         child: Column(children: [
           Expanded(
-            child: TabBarView(controller: tabController, children: [
+            child: TabBarView(controller: tabController, children: const [
               SingleChildScrollView(
-                scrollDirection: Axis.vertical,
                 child: Column(
                   children: [
-                    Expanded(child: IconUser()),
                     SizedBox(
-                      height: 10,
+                      height: 40,
                     ),
-                    Expanded(
+                    SizedBox(
+                      child: IconUser(),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    SizedBox(
                       child: UserInformation(),
                     ),
                   ],
