@@ -1,6 +1,5 @@
-import 'package:elo/profile/widgets/iconUser.dart';
-import 'package:elo/profile/widgets/userInformation.dart';
-import 'package:elo/profile/widgets/tabBar.dart';
+import 'package:elo/profile/widgets/icon_user.dart';
+import 'package:elo/profile/widgets/user_information.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +14,10 @@ class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   var tabs = [
     const Tab(
-      text: 'Dados',
+      text: 'Configurações',
     ),
     const Tab(
-      text: 'Faturas',
+      text: 'Dados',
     ),
     const Tab(
       text: 'Perguntas Frequentes',
@@ -57,6 +56,18 @@ class _ProfilePageState extends State<ProfilePage>
                       height: 40,
                     ),
                     SizedBox(
+                      child: UserInformation(),
+                    ),
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 40,
+                    ),
+                    SizedBox(
                       child: IconUser(),
                     ),
                     SizedBox(
@@ -65,10 +76,12 @@ class _ProfilePageState extends State<ProfilePage>
                     SizedBox(
                       child: UserInformation(),
                     ),
+                    SizedBox(
+                      height: 20,
+                    )
                   ],
                 ),
               ),
-              Text('tela 2', style: TextStyle(fontSize: 50)),
               Text('tela 3', style: TextStyle(fontSize: 50)),
             ]),
           ),

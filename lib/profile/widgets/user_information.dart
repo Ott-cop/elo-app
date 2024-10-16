@@ -1,4 +1,5 @@
-import 'package:elo/profile/widgets/inputUserInformation.dart';
+import 'package:elo/profile/widgets/input_user_information.dart';
+import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 
 class UserInformation extends StatefulWidget {
@@ -43,13 +44,19 @@ class _UserInformationState extends State<UserInformation> {
           information: "Endereço",
           controller: inputControllerAddress,
         ),
-        ElevatedButton(
+        SizedBox(
+          height: 20,
+        ),
+        buttonDefault(
             onPressed: () {
               debugPrint(inputControllerName.text);
               debugPrint(inputControllerLastname.text);
               debugPrint(inputControllerCPF.text);
             },
-            child: Text("Salvar"))
+            textColor: Global().primaryColor,
+            icon: Icon(Icons.save),
+            // backgroundColor: Global().primaryColor,
+            text: 'Salvar')
       ],
     );
   }

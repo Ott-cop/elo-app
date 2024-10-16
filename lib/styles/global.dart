@@ -78,12 +78,20 @@ ElevatedButton buttonDefault(
     {Function()? onPressed,
     Color? backgroundColor,
     Color? overlayColor,
+    Color? borderColor,
     Icon? icon,
-    String? text,
-    Color? textColor,
+    required String text,
+    Color textColor = Colors.white,
     Widget? child}) {
-  return ElevatedButton(
+  borderColor ??= textColor;
+  overlayColor ??= textColor.withOpacity(0.1);
+  return ElevatedButton.icon(
     onPressed: onPressed,
+    label: Text(
+      text,
+      style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+    ),
+    icon: icon,
     style: ButtonStyle(
         fixedSize: const WidgetStatePropertyAll(Size(double.infinity, 50)),
         elevation: const WidgetStatePropertyAll(0),
@@ -92,20 +100,11 @@ ElevatedButton buttonDefault(
         shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
             RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: const BorderSide(color: Colors.red)))),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        icon!,
-        Text(
-          text!,
-          style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
-        ),
-      ],
-    ),
+                side: BorderSide(color: borderColor)))),
   );
 }
 
+// TextStyle(color: textColor, fontWeight: FontWeight.bold),
 InputDecoration inputDecorationStyle(
     {String? hint,
     Text? label,
