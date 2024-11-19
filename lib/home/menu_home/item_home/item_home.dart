@@ -30,75 +30,75 @@ class _ItemHomeState extends State<ItemHome> {
       color = const WidgetStatePropertyAll(Colors.white);
       iconColor = Colors.white;
     }
-    return Container(
-      width: 150,
-      height: 150,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Global().primaryColor)),
-      child: Stack(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        // mainAxisSize: MainAxisSize.min,
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: IconButton(
-                onPressed: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => ItemSettings(
-                                device: widget.device,
-                              )))
-                },
-                icon: const Icon(
-                  Icons.edit,
-                  size: 20,
-                  color: Colors.white,
-                ),
+    return InkWell(
+      splashFactory: InkSparkle.splashFactory,
+      splashColor: Global().splashPrimaryColor,
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (_) => ItemSettings(
+                    device: widget.device,
+                  ))),
+      child: Container(
+        width: 120,
+        height: 120,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Global().primaryColor)),
+        child: Stack(
+          children: [
+            const Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: EdgeInsets.all(4.0),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    widget.device.icon!.icon,
-                    color: iconColor,
-                    size: 40,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    widget.device.name!,
-                    style: const TextStyle(fontSize: 15),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Switch(
-                      thumbColor: color,
-                      value: widget.device.state!,
-                      onChanged: (value) {
-                        setState(() {
-                          if (value) {
-                            color = WidgetStatePropertyAll(
-                                Global().backgroundColor);
-                          } else {
-                            color = const WidgetStatePropertyAll(Colors.white);
-                          }
-                          widget.device.state = !widget.device.state!;
-                        });
-                      }),
-                ]),
-          ),
-        ],
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      widget.device.icon!.icon,
+                      color: iconColor,
+                      size: 30,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      widget.device.name!,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      width: 42,
+                      child: FittedBox(
+                        fit: BoxFit.fill,
+                        child: Switch(
+                            thumbColor: color,
+                            value: widget.device.state!,
+                            onChanged: (value) {
+                              setState(() {
+                                if (value) {
+                                  color = WidgetStatePropertyAll(
+                                      Global().backgroundColor);
+                                } else {
+                                  color = const WidgetStatePropertyAll(
+                                      Colors.white);
+                                }
+                                widget.device.state = !widget.device.state!;
+                              });
+                            }),
+                      ),
+                    ),
+                  ]),
+            ),
+          ],
+        ),
       ),
     );
   }

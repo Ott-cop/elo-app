@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Global {
   Color primaryColor = const Color(0xFFD86506);
-  Color splashPrimaryColor = const Color.fromARGB(255, 250, 156, 79);
+  Color splashPrimaryColor = const Color(0xFFD86506).withOpacity(0.2);
   Color backgroundColor = const Color(0xFF030D13);
   Color backgroundColor2 = const Color.fromARGB(255, 5, 20, 29);
 }
