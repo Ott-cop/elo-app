@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/",
+      initialRoute: "/login",
       routes: {
         "/login": (_) => const LoginPage(),
         "/": (_) => const Menu(),

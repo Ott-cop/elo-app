@@ -22,8 +22,8 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: [
                   Image(
-                    image: AssetImage("assets/logo/LOGO_Oficial.png"),
-                    height: 200,
+                    image: AssetImage("assets/logo/Logo_Oner.png"),
+                    height: 80,
                   ),
                   SizedBox(
                     height: 40,

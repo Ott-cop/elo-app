@@ -14,10 +14,10 @@ class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   var tabs = [
     const Tab(
-      text: 'Configurações',
+      text: 'Dados',
     ),
     const Tab(
-      text: 'Dados',
+      text: 'Configurações',
     ),
     const Tab(
       text: 'Perguntas Frequentes',
@@ -56,18 +56,6 @@ class _ProfilePageState extends State<ProfilePage>
                       height: 40,
                     ),
                     SizedBox(
-                      child: UserInformation(),
-                    ),
-                  ],
-                ),
-              ),
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 40,
-                    ),
-                    SizedBox(
                       child: IconUser(),
                     ),
                     SizedBox(
@@ -82,7 +70,8 @@ class _ProfilePageState extends State<ProfilePage>
                   ],
                 ),
               ),
-              Text('tela 3', style: TextStyle(fontSize: 50)),
+              Text('EM DESENVOLVIMENTO', style: TextStyle(fontSize: 25)),
+              Text('EM DESENVOLVIMENTO', style: TextStyle(fontSize: 25)),
             ]),
           ),
           TabBar(
