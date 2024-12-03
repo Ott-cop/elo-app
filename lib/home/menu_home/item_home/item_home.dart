@@ -1,7 +1,9 @@
 import 'package:elo/home/menu_home/item_home/device_home_model.dart';
 import 'package:elo/home/menu_home/item_home/item_settings/item_settings.dart';
+import 'package:elo/repositories/item_home_repositories/item_home_repositories.dart';
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ItemHome extends StatefulWidget {
   final Device device;
@@ -23,6 +25,7 @@ class _ItemHomeState extends State<ItemHome> {
 
   @override
   Widget build(BuildContext context) {
+    var device = Provider.of<ItemHomeRepositories>(context);
     if (widget.device.state!) {
       color = WidgetStatePropertyAll(Global().backgroundColor);
       iconColor = Global().primaryColor;
@@ -86,11 +89,13 @@ class _ItemHomeState extends State<ItemHome> {
                                 if (value) {
                                   color = WidgetStatePropertyAll(
                                       Global().backgroundColor);
+                                  device.changeState(widget.device.id, true);
                                 } else {
                                   color = const WidgetStatePropertyAll(
                                       Colors.white);
+                                  device.changeState(widget.device.id, false);
                                 }
-                                widget.device.state = !widget.device.state!;
+                                // widget.device.state = !widget.device.state!;
                               });
                             }),
                       ),

@@ -65,10 +65,7 @@ class SettingsCategoryController {
           Provider.of<CategoriesHomeProvider>(context, listen: false);
       var verify = categoryList.listCategory
           .indexWhere((category) => category.name == _name);
-      // debugPrint("${_categoryDelete!.name}, ${_categoryDelete!.id}");value
-      // var verify = categoryList.listCategory
-      // .indexWhere((c) => c.name == _categoryDelete);
-      debugPrint('Valor recebido: $verify');
+
       categoryList.remove(categoryList.listCategory.toList()[verify].id);
       toast(
         message: "Categoria deletada com sucesso!",

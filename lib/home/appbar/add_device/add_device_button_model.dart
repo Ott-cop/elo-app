@@ -21,8 +21,8 @@ class _AddDeviceButtonState extends State<AddDeviceButtonModel> {
             context, MaterialPageRoute(builder: (_) => const AddDevicePage()))
       },
       child: Container(
-        width: 150,
-        height: 150,
+        width: 120,
+        height: 120,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Global().primaryColor)),

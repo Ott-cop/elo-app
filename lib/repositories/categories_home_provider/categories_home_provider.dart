@@ -6,7 +6,7 @@ import 'package:uuid/v4.dart';
 
 class CategoriesHomeProvider extends ChangeNotifier {
   final List<Category> _listCategory = [
-    Category(id: const UuidV4().generate(), name: "Geral"),
+    Category(id: "0", name: "Geral"),
   ];
 
   UnmodifiableListView<Category> get listCategory =>
@@ -14,6 +14,11 @@ class CategoriesHomeProvider extends ChangeNotifier {
 
   add(Category category) {
     _listCategory.add(category);
+    notifyListeners();
+  }
+
+  remove(String id) {
+    _listCategory.removeWhere((category) => category.id == id);
     notifyListeners();
   }
 }

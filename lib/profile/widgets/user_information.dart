@@ -20,31 +20,37 @@ class _UserInformationState extends State<UserInformation> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InputUserInformation(
+        const InputUserInformation(
           information: "Nome",
-          controller: inputControllerName,
+          value: "Bartholomeu",
+          // controller: inputControllerName,
         ),
-        InputUserInformation(
+        const InputUserInformation(
           information: "Sobrenome",
-          controller: inputControllerLastname,
+          value: "Silva",
+          // controller: inputControllerLastname,
         ),
-        InputUserInformation(
+        const InputUserInformation(
           information: "CPF",
-          controller: inputControllerCPF,
+          value: "000.000.000-00",
+          // controller: inputControllerCPF,
         ),
-        InputUserInformation(
+        const InputUserInformation(
           information: "Número de Telefone",
-          controller: inputControllerPhone,
+          value: "(14) 99999-9999",
+          // controller: inputControllerPhone,
         ),
-        InputUserInformation(
+        const InputUserInformation(
           information: "E-mail",
-          controller: inputControllerEmail,
+          value: "bartholomeusilva@email.com",
+          // controller: inputControllerEmail,
         ),
-        InputUserInformation(
+        const InputUserInformation(
           information: "Endereço",
-          controller: inputControllerAddress,
+          value: "Rua Bartholomeu Silva",
+          // controller: inputControllerAddress,
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         buttonDefault(

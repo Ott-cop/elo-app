@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 
 class InputUserInformation extends StatefulWidget {
   final String information;
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   final String? value;
 
   const InputUserInformation(
-      {super.key,
-      required this.information,
-      this.value,
-      required this.controller});
+      {super.key, required this.information, this.value, this.controller});
 
   @override
   State<InputUserInformation> createState() => _InputUserInformationState();
@@ -28,6 +25,7 @@ class _InputUserInformationState extends State<InputUserInformation> {
         TextFormField(
           controller: widget.controller,
           initialValue: widget.value,
+          style: TextStyle(color: Theme.of(context).disabledColor),
           decoration: inputDecorationStyle(
               label: Text(widget.information),
               floatingLabel: FloatingLabelBehavior.always),

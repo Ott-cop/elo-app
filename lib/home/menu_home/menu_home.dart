@@ -87,7 +87,36 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
                     return item.categoryId ==
                         categoryHome.listCategory[index].id;
                   }).toList();
-
+                  if (index == 0) {
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 100),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          direction: Axis.horizontal,
+                          spacing: 15,
+                          runSpacing: 15,
+                          children: [
+                            const AddDeviceButtonModel(),
+                            ...List.generate(items.length, growable: false,
+                                (item) {
+                              // debugPrint("Encontrei!");
+                              return ItemHome(
+                                  device: Device(
+                                id: items[item].id,
+                                categoryId: items[item].categoryId,
+                                icon: items[item].icon,
+                                name: items[item].name,
+                                port: items[item].port,
+                                state: items[item].state,
+                              ));
+                            })
+                          ],
+                        ),
+                      ),
+                    );
+                  }
                   return SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Padding(

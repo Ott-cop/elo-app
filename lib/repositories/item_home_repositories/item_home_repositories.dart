@@ -8,6 +8,13 @@ class ItemHomeRepositories extends ChangeNotifier {
   UnmodifiableListView<Device> get listItems =>
       UnmodifiableListView(_listItems);
 
+  changeState(String id, bool newState) {
+    var index = _listItems.indexWhere((listItem) => listItem.id == id);
+
+    _listItems[index].state = newState;
+    notifyListeners();
+  }
+
   add(Device item) {
     _listItems.add(item);
     notifyListeners();
