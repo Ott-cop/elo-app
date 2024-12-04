@@ -9,6 +9,9 @@ import 'package:elo/repositories/item_home_repositories/item_home_repositories.d
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import 'package:mqtt_client/mqtt_client.dart';
+import 'package:mqtt_client/mqtt_server_client.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -21,10 +24,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  // final MqttServerClient client;
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // client.subscribe('changeState', MqttQos.atMostOnce);
     return MaterialApp(
       title: 'Materion',
       debugShowCheckedModeBanner: false,
