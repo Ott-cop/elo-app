@@ -9,9 +9,6 @@ import 'package:elo/repositories/item_home_repositories/item_home_repositories.d
 import 'package:elo/styles/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
-import 'package:mqtt_client/mqtt_client.dart';
-import 'package:mqtt_client/mqtt_server_client.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -43,7 +40,7 @@ class MyApp extends StatelessWidget {
             error: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: "/login",
+      initialRoute: "/",
       routes: {
         "/login": (_) => const LoginPage(),
         "/": (_) => const Menu(),

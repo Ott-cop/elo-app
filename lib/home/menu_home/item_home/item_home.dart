@@ -89,11 +89,13 @@ class _ItemHomeState extends State<ItemHome> {
                                 if (value) {
                                   color = WidgetStatePropertyAll(
                                       Global().backgroundColor);
-                                  device.changeState(widget.device.id, true);
+                                  device.changeState(widget.device.id, true,
+                                      widget.device.topic!);
                                 } else {
                                   color = const WidgetStatePropertyAll(
                                       Colors.white);
-                                  device.changeState(widget.device.id, false);
+                                  device.changeState(widget.device.id, false,
+                                      widget.device.topic!);
                                 }
                                 // widget.device.state = !widget.device.state!;
                               });

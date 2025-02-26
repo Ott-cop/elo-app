@@ -10,7 +10,7 @@ class AddingDeviceController {
   Icon? _icon;
   String? _deviceName;
   String? _categoryName;
-  int? _port;
+  String? _topic;
 
   String? validateIcon(Icon? icon) {
     _icon = icon;
@@ -40,9 +40,9 @@ class AddingDeviceController {
     return null;
   }
 
-  String? validatePort(int? port) {
-    _port = port;
-    if (port == null) {
+  String? validateTopic(String? topic) {
+    _topic = topic;
+    if (topic == null) {
       return 'Obrigatório';
     }
     return null;
@@ -69,7 +69,7 @@ class AddingDeviceController {
             categoryId: categoryList[category].id,
             icon: _icon!,
             name: _deviceName!,
-            port: _port!,
+            topic: _topic!,
             state: false),
       );
       toast(

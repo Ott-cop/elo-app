@@ -120,7 +120,7 @@ class _ItemSettingsState extends State<ItemSettings> {
                       child: Text("$n"),
                     );
                   }).toList(),
-                  hint: Text("${widget.device.port}"),
+                  hint: Text("${widget.device.topic}"),
                   focusColor: Global().backgroundColor,
                   borderRadius: BorderRadius.circular(10),
                   dropdownColor: Global().backgroundColor2,

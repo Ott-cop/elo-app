@@ -108,7 +108,7 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
                                 categoryId: items[item].categoryId,
                                 icon: items[item].icon,
                                 name: items[item].name,
-                                port: items[item].port,
+                                topic: items[item].topic,
                                 state: items[item].state,
                               ));
                             })
@@ -137,7 +137,7 @@ class _MenuHomeWidgetState extends State<MenuHomeWidget>
                               categoryId: tabItems[item].categoryId,
                               icon: tabItems[item].icon,
                               name: tabItems[item].name,
-                              port: tabItems[item].port,
+                              topic: tabItems[item].topic,
                               state: tabItems[item].state,
                             ));
                           })

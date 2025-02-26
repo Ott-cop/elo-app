@@ -5,7 +5,7 @@ class Device {
   String? categoryId;
   Icon? icon;
   String? name;
-  int? port;
+  String? topic;
   bool? state;
 
   Device(
@@ -13,6 +13,6 @@ class Device {
       this.categoryId,
       required this.icon,
       required this.name,
-      required this.port,
+      required this.topic,
       this.state});
 }

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 class ItemSettingsController {
   Icon? _icon;
   String? _deviceName;
+  String? _topic;
   int? _port;
 
   set setIcon(Icon? icon) {
@@ -27,6 +28,12 @@ class ItemSettingsController {
     return null;
   }
 
+  set setTopic(String? topic) {
+    if (topic != null) {
+      _topic = topic;
+    }
+  }
+
   set setPort(int? port) {
     if (port != null) {
       _port = port;
@@ -36,7 +43,7 @@ class ItemSettingsController {
   void setDevice(BuildContext context, bool validate, String deviceId) {
     if (validate) {
       Provider.of<ItemHomeRepositories>(context, listen: false).edit(
-          Device(id: deviceId, icon: _icon, name: _deviceName, port: _port));
+          Device(id: deviceId, icon: _icon, name: _deviceName, topic: _topic));
 
       toast(
               message: "Editado com sucesso!",

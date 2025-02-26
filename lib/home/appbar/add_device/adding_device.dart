@@ -114,32 +114,16 @@ class _AddDevicePageState extends State<AddDevicePage> {
                           width: 120,
                           padding: const EdgeInsets.only(left: 4),
                           child: DropdownButtonFormField(
-                            validator: (port) => _form.validatePort(port),
+                            validator: (port) => _form.validateTopic(port),
                             onChanged: (value) => {},
-                            items: <int>[
-                              1,
-                              2,
-                              3,
-                              4,
-                              5,
-                              6,
-                              7,
-                              8,
-                              9,
-                              10,
-                              11,
-                              12,
-                              13,
-                              14,
-                              15
-                            ].map((int n) {
+                            items: <String>["pin_2", "pin_23"].map((String n) {
                               return DropdownMenuItem(
                                 alignment: Alignment.center,
                                 value: n,
-                                child: Text("$n"),
+                                child: Text(n),
                               );
                             }).toList(),
-                            hint: const Text("Porta"),
+                            hint: const Text("Tópico"),
                             dropdownColor: Global().backgroundColor2,
                             borderRadius: BorderRadius.circular(10),
                             focusColor: Global().backgroundColor,
